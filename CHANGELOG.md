@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## Unreleased
 ### Added
 - creation for new hex tiles
+- creation for new square tiles
 
 ## [0.0.1] - 2019-10-09
 ### Added
