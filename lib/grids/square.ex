@@ -17,4 +17,21 @@ defmodule Grids.Square do
 
   """
   def new([x, y]), do: %Square{x: x, y: y}
+
+  @doc """
+  Returns 6 neighbors for square tile
+
+  ## Examples
+
+      iex> Grids.Square.neighbors(%Square{})
+      [%Square{}, ...]
+
+  """
+  def neighbors(%Square{x: x, y: y}) do
+    [
+      %Square{x: x + 1, y: y + 1}, %Square{x: x + 1, y: y}, %Square{x: x + 1, y: y - 1},
+      %Square{x: x, y: y - 1}, %Square{x: x - 1, y: y - 1}, %Square{x: x - 1, y: y},
+      %Square{x: x - 1, y: y + 1}, %Square{x: x, y: y + 1}
+    ]
+  end
 end

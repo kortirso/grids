@@ -20,4 +20,20 @@ defmodule Grids.Hex do
   def do_new(:axial, coordinates, _), do: Axial.new(coordinates)
   def do_new(:offset, coordinates, options), do: Offset.new(coordinates, options)
   def do_new(_, _, _), do: {:error, "Unknown coordinates system"}
+
+  @doc """
+  Returns 6 neighbors for hex tile
+
+  ## Examples
+
+      iex> Grids.Hex.neighbors(%Cube{})
+      [%Cube{}, ...]
+
+  """
+  def neighbors(tile, options \\ %{}) when is_map(options), do: do_neighbors(tile, options)
+
+  def do_neighbors(%Cube{} = tile, _), do: Cube.neighbors(tile)
+  def do_neighbors(%Axial{} = tile, _), do: Axial.neighbors(tile)
+  def do_neighbors(%Offset{} = tile, options), do: Offset.neighbors(tile, options)
+  def do_neighbors(_, _), do: {:error, "Unknown coordinates system"}
 end

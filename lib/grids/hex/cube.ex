@@ -22,4 +22,20 @@ defmodule Grids.Hex.Cube do
       _ -> {:error, "Invalid coordinates in cube system"}
     end
   end
+
+  @doc """
+  Returns 6 neighbors for hex tile
+
+  ## Examples
+
+      iex> Grids.Hex.Cube.neighbors(%Cube{})
+      [%Cube{}, ...]
+
+  """
+  def neighbors(%Cube{x: x, y: y, z: z}) do
+    [
+      %Cube{x: x + 1, y: y - 1, z: z}, %Cube{x: x + 1, y: y, z: z - 1}, %Cube{x: x, y: y + 1, z: z - 1},
+      %Cube{x: x - 1, y: y + 1, z: z}, %Cube{x: x - 1, y: y, z: z + 1}, %Cube{x: x, y: y - 1, z: z + 1}
+    ]
+  end
 end

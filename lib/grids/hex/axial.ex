@@ -17,4 +17,20 @@ defmodule Grids.Hex.Axial do
 
   """
   def new([x, y]) when is_integer(x) and is_integer(y), do: %Axial{x: x, y: y}
+
+  @doc """
+  Returns 6 neighbors for hex tile
+
+  ## Examples
+
+      iex> Grids.Hex.Axial.neighbors(%Axial{})
+      [%Axial{}, ...]
+
+  """
+  def neighbors(%Axial{x: x, y: y}) do
+    [
+      %Axial{x: x + 1, y: y}, %Axial{x: x + 1, y: y - 1}, %Axial{x: x, y: y - 1},
+      %Axial{x: x - 1, y: y}, %Axial{x: x - 1, y: y + 1}, %Axial{x: x, y: y + 1}
+    ]
+  end
 end
