@@ -10,7 +10,7 @@ by adding `grids` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:grids, "~> 0.0.1"}
+    {:grids, "~> 0.1.0"}
   ]
 end
 ```

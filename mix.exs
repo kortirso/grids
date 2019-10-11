@@ -8,7 +8,7 @@ defmodule Grids.MixProject do
   def project do
     [
       app: :grids,
-      version: "0.0.1",
+      version: "0.1.0",
       elixir: "~> 1.9",
       name: "Grids",
       description: @description,
