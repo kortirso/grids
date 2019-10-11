@@ -30,10 +30,8 @@ defmodule Grids.Hex do
       [%Cube{}, ...]
 
   """
-  def neighbors(tile, options \\ %{}) when is_map(options), do: do_neighbors(tile, options)
-
-  def do_neighbors(%Cube{} = tile, _), do: Cube.neighbors(tile)
-  def do_neighbors(%Axial{} = tile, _), do: Axial.neighbors(tile)
-  def do_neighbors(%Offset{} = tile, options), do: Offset.neighbors(tile, options)
-  def do_neighbors(_, _), do: {:error, "Unknown coordinates system"}
+  def neighbors(%Cube{} = tile), do: Cube.neighbors(tile)
+  def neighbors(%Axial{} = tile), do: Axial.neighbors(tile)
+  def neighbors(%Offset{} = tile), do: Offset.neighbors(tile)
+  def neighbors(_), do: {:error, "Unknown coordinates system"}
 end
